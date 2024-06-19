@@ -147,7 +147,7 @@ def main():
         "-u",
         "--url",
         type=my_url,
-        help="foobar",
+        help="aperless-ngx instance url, ex: `http://192.168.10.1:5000`. If set, the generated QR code will point to that specific document. If not set, the default ASN will be used",
     )
 
     parser.add_argument(

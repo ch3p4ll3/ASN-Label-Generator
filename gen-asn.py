@@ -62,10 +62,10 @@ def my_url(arg):
 def parse_cfg(args):
     if not args.last:
         # generate one page full of labels
-        last = first + ROWS * COLS - 1
+        last = args.first + ROWS * COLS - 1
     elif args.last.startswith("x"):
         # generate n columns of labels
-        last = first + ROWS * int(args.last[1:]) - 1
+        last = args.first + ROWS * int(args.last[1:]) - 1
     else:
         # generate labels from first-last
         last = int(args.last)
@@ -160,6 +160,8 @@ def main():
     )
 
     args = parser.parse_args()
+
+    print(args)
 
     (year, first, last) = parse_cfg(args)
     data = [[year, x] for x in range(first, last+1)]

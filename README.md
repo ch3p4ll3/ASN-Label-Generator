@@ -23,13 +23,17 @@ On Linux with apt:
 `pip install -r requirements`
 
 ## Arguments
+
 | Arg name        | Default   | Remarks                                                                                                                                                                                              |
 |-----------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--rows`/`-r`   |     16    | number of rows, default is 16                                                                                                                                                                        |
+| `--cols`/`-c`   |     5     | number of columns, default is 5                                                                                                                                                                      |
 |  `--year`/`-y`  |     0     | Year can be omitted, default year is 0                                                                                                                                                               |
 | `--first`/`-f`  |     1     | First is the starting ASN and can be omitted, default start is 1                                                                                                                                     |
 | `--last`/`-l`   |           | Last is the last ASN to generate. It can either be an integer or a value starting with 'x' like 'x3' which means to generate 3 blocks of 16 labels. If omitted, a full sheet of labels is generated. |
 | `--url`/`-u`    | ASNxxxxxx | paperless-ngx instance url, ex: `http://192.168.10.1:5000`. If set, the generated QR code will point to that specific document. If not set, the default ASN will be used                             |
 | `--output`/`-o` |           | The name of the pdf to generate, default 'output.pdf'                                                                                                                                                |
+
 
 ## Generate labels
 generate labels for year 2024, start at 1

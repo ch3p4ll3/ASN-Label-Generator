@@ -46,15 +46,9 @@ colors = [
 ]
 
 
-# sheet config
-ROWS = 16
-COLS = 5
-CELLS = ROWS*COLS
-
-
 def my_url(arg):
     url = urlparse(arg)
-    if all((url.scheme, url.netloc)):  # possibly other sections?
+    if all((url.scheme, url.netloc)):
         return f"{url.scheme}://{url.netloc}"
     raise ArgumentTypeError('Invalid URL')
 
@@ -62,10 +56,10 @@ def my_url(arg):
 def parse_cfg(args):
     if not args.last:
         # generate one page full of labels
-        last = args.first + ROWS * COLS - 1
+        last = args.first + args.rows * args.cols - 1
     elif args.last.startswith("x"):
         # generate n columns of labels
-        last = args.first + ROWS * int(args.last[1:]) - 1
+        last = args.first + args.rows * int(args.last[1:]) - 1
     else:
         # generate labels from first-last
         last = int(args.last)
@@ -121,6 +115,22 @@ def main():
     parser = argparse.ArgumentParser(description='Generate ASN')
 
     parser.add_argument(
+        '--rows',
+        '-r',
+        default=16,
+        type=int,
+        help=f"Rows can be omitted, default rows is 16."
+    )
+
+    parser.add_argument(
+        '--cols',
+        '-c',
+        default=5,
+        type=int,
+        help=f"Cols can be omitted, default cols is 5."
+    )
+
+    parser.add_argument(
         '--year',
         '-y',
         default=0,
@@ -140,12 +150,12 @@ def main():
         '--last',
         '-l', 
         help=f"""Last is the last ASN to generate. It can either be an integer or a value starting with 'x' like 'x3' which means to 
-        generate 3 blocks of {ROWS} labels. If omitted, a full sheet of labels is generated."""
+        generate 3 blocks of labels. If omitted, a full sheet of labels is generated."""
     )
     
     parser.add_argument(
-        "-u",
         "--url",
+        "-u",
         type=my_url,
         help="Paperless-ngx instance url, ex: `http://192.168.10.1:5000`. If set, the generated QR code will point to that specific document. If not set, the default ASN will be used",
     )
@@ -179,4 +189,3 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
-L

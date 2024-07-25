@@ -147,7 +147,7 @@ def main():
         "-u",
         "--url",
         type=my_url,
-        help="aperless-ngx instance url, ex: `http://192.168.10.1:5000`. If set, the generated QR code will point to that specific document. If not set, the default ASN will be used",
+        help="Paperless-ngx instance url, ex: `http://192.168.10.1:5000`. If set, the generated QR code will point to that specific document. If not set, the default ASN will be used",
     )
 
     parser.add_argument(
@@ -160,8 +160,6 @@ def main():
     )
 
     args = parser.parse_args()
-
-    print(args)
 
     (year, first, last) = parse_cfg(args)
     data = [[year, x] for x in range(first, last+1)]
@@ -181,3 +179,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+L

@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "DejaVuSansMono-Bold";
+    src: url(../../fonts/DejaVuSansMono-Bold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "DejaVuSansMono";
+    src: url(../../fonts/DejaVuSansMono.ttf) format("truetype");
+}
+
+@page {
+    width: 21cm;
+    height: 29.7cm;
+    padding: 0mm;
+    padding-top: 15mm;
+}
+
+img {
+    height: 14.8mm;
+    display: inline-block;
+    vertical-align: middle;
+    image-rendering: pixelated;
+}
+
+.container {
+    width: 35.6mm;
+    height: 16.9mm;
+    padding-left: 2.5mm;
+    padding-bottom: 0mm;
+}
+
+.label {
+    display: inline-block;
+    background-color: #e6feff;
+    border: 0.4mm solid black;
+    border-left: none;
+    vertical-align: middle;
+    line-height: normal;
+    height: 14.8mm;
+}
+
+.year {
+    font-family: DejaVuSansMono-Bold;
+    font-weight: bold;
+    text-align-last: right;
+    font-size: 5.5mm;
+    color: black;
+    margin-left: 6mm;
+    margin-right: 1mm;
+}
+
+.padding {
+    font-family: DejaVuSansMono;
+    font-size: 5.5mm;
+    color: #aaaaaa;
+}
+
+.sn {
+    font-family: DejaVuSansMono-Bold;
+    font-size: 5.5mm;
+    color: #fc990f;
+    margin-right: 1mm;
+}
